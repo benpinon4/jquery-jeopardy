@@ -42,16 +42,11 @@ $("#container").append(row800);
         );
         $("#row100").append(create100);
         $(`#question100${i}`).on("click", (event) => {
-
+          // console.log(displayQuestion)
           answerDisplayArea.innerText = "";
           if (elementClicked === false) {
           
             removeOpacity = create100
-            console.log(create100)
-
-            console.log("removeOpacity")
-            console.log(removeOpacity)
-            console.log(i)
             removeOpacity.attr('class', 'col border border-dark border-1 text-bg-secondary mb-3 opacity-75')
             displayQuestion =
               finalQuestion.$100[
@@ -156,16 +151,13 @@ answerSubmit.addEventListener("click", (event) => {
     if (
       userAnswer.toLowerCase().includes(actualAnswer.toLowerCase()) === true
     ) {
-      console.log("you are correct");
       scoringTotal =
         Number(scoringTotal) + Number(displayQuestion.value.replace("$", ""));
-      console.log(scoringTotal);
       scoreBoard.innerText = `Your score: $${scoringTotal}`;
       answerDisplayArea.innerText = `YOU ARE CORRECT!!!!\nYou scored: ${displayQuestion.value}\nPlease select another question.`;
       removeOpacity.attr("class", "col border border-dark border-1 text-bg-secondary mb-3")
       removeOpacity = ""
     } else {
-      console.log("you are wrong");
       answerDisplayArea.innerText = `YOU ARE WRONG!!!!\nPlease select another question.`;
       removeOpacity.attr("class", "col border border-dark border-1 text-bg-secondary mb-3")
       removeOpacity = ""
@@ -174,7 +166,6 @@ answerSubmit.addEventListener("click", (event) => {
     //if answer is a number
   } else if (typeof actualAnswer === "number") {
     if (userAnswer.toLowerCase().includes(actualAnswer) === true) {
-      console.log("you are correct");
       scoringTotal =
         Number(scoringTotal) + Number(displayQuestion.value.replace("$", ""));
       scoreBoard.innerText = `Your score: $${scoringTotal}`;
